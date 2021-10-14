@@ -8,7 +8,14 @@ class SubwayOnAir extends StatefulWidget {
 }
 
 class _SubwayOnAirState extends State<SubwayOnAir> {
+  final _formKey = GlobalKey<FormState>();
   final _subwayController = TextEditingController();
+
+  @override
+  void dispose() {
+    super.dispose();
+    _subwayController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +31,14 @@ class _SubwayOnAirState extends State<SubwayOnAir> {
                 children: [
                   const Text('역 이름'),
                   Expanded(
-                    child: TextFormField(
-                      controller: _subwayController,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Form(
+                        key: _formKey,
+                        child: TextFormField(
+                          controller: _subwayController,
+                        ),
+                      ),
                     ),
                   ),
                   ElevatedButton(
