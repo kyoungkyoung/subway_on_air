@@ -7,14 +7,11 @@ part of 'subway_list.dart';
 // **************************************************************************
 
 SubwayList _$SubwayListFromJson(Map<String, dynamic> json) => SubwayList(
-      json['trainLineNm'] as String,
-      json['arvlMsg2'] as String,
-      json['arvlMsg3'] as String,
+      RealtimeArrivalList.fromJson(
+          json['realtimeArrivalList'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$SubwayListToJson(SubwayList instance) =>
     <String, dynamic>{
-      'trainLineNm': instance.trainLineNm,
-      'arvlMsg2': instance.arvlMsg2,
-      'arvlMsg3': instance.arvlMsg3,
+      'realtimeArrivalList': instance.realtimeArrivalList.toJson(),
     };

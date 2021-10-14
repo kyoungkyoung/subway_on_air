@@ -1,16 +1,13 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:subway_on_air/model/realtime_arrival_list.dart';
 
 part 'subway_list.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class SubwayList {
-  String trainLineNm; //도착지방면 (성수행 - 구로디지털단지방면)
-  String arvlMsg2; // 열차도착예정시간 "4분 45초 후",
-  String arvlMsg3; //"구의",
+  RealtimeArrivalList realtimeArrivalList;
 
-  SubwayList(this.trainLineNm, this.arvlMsg2, this.arvlMsg3);
-
-
+  SubwayList(this.realtimeArrivalList);
 
   factory SubwayList.fromJson(Map<String, dynamic> json) =>
       _$SubwayListFromJson(json);
