@@ -92,9 +92,28 @@ class _SubwayOnAirState extends State<SubwayOnAir> {
                     crossAxisCount: 2,
                     children: list.map((e) {
                       return Card(
-                        child: ListTile(
-                          title: Text(e.trainLineNm),
-
+                        child: Column(
+                          children: [
+                            const SizedBox(
+                              width: 100,
+                              height: 100,
+                              child: Image(
+                                image: AssetImage('img/subway.JPG'),
+                                // width: 50,
+                                // height: 50,
+                                // fit: BoxFit.cover,
+                              ),
+                            ),
+                            Text(
+                              e.trainLineNm,
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.start,
+                            ),
+                            Text(
+                              e.arvlMsg2
+                            ),
+                            Text(e.arvlMsg3)
+                          ],
                         ),
                       );
                     }).toList(),
