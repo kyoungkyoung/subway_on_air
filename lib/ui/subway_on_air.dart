@@ -8,13 +8,58 @@ class SubwayOnAir extends StatefulWidget {
 }
 
 class _SubwayOnAirState extends State<SubwayOnAir> {
+  final _subwayController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('실시간 지하철 정보'),
-      ),
-
-    );
+        appBar: AppBar(
+          title: const Text('실시간 지하철 정보'),
+        ),
+        body: ListView(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  const Text('역 이름'),
+                  Expanded(
+                    child: TextFormField(
+                      controller: _subwayController,
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: const Text('조회'),
+                  )
+                ],
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text('도착 정보'),
+            ),
+            GridView.count(
+              padding: const EdgeInsets.all(8.0),
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              crossAxisCount: 2,
+              children: [
+                Card(
+                  child: ListTile(),
+                ),
+                Card(
+                  child: ListTile(),
+                ),
+                Card(
+                  child: ListTile(),
+                ),
+                Card(
+                  child: ListTile(),
+                ),
+              ],
+            ),
+          ],
+        ));
   }
 }
