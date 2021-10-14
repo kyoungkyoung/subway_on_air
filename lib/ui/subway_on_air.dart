@@ -109,9 +109,7 @@ class _SubwayOnAirState extends State<SubwayOnAir> {
                               overflow: TextOverflow.ellipsis,
                               textAlign: TextAlign.start,
                             ),
-                            Text(
-                              e.arvlMsg2
-                            ),
+                            Text(e.arvlMsg2),
                             Text(e.arvlMsg3)
                           ],
                         ),
