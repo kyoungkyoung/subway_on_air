@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:subway_on_air/model/realtime_arrival_list.dart';
-import 'package:subway_on_air/model/subway_list.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -130,9 +129,6 @@ class _SubwayOnAirState extends State<SubwayOnAir> {
     final response = await http.get(Uri.parse(url));
 
     Map<String, dynamic> subwayList = jsonDecode(response.body);
-    var realtimeArrivalList = jsonEncode(subwayList['realtimeArrivalList']);
-
-    // Iterable jsonResponse = jsonDecode(realtimeArrivalList);
     Iterable jsonResponse = subwayList['realtimeArrivalList'];
 
     List<RealtimeArrivalList> list =
